@@ -1,8 +1,8 @@
 name: Deploy Worker
 on:
   push:
-    tags:
-      - '*'
+  pull_request:
+  repository_dispatch:
 jobs:
   deploy:
     runs-on: ubuntu-latest
