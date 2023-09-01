@@ -22,7 +22,7 @@ jobs:
         # github.com/cloudflare/wrangler-action
         uses: cloudflare/wrangler-action@2.0.0
         with:
-          apiToken: ${{ secrets.CF_API_TOKEN }}
+          apiToken: ${{ secrets.CFAPI }}
           # input overrides env-defaults, regardless
           environment: ${{ env.WORKERS_ENV }}
         env:
