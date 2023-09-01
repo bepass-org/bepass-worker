@@ -1,2 +1,4 @@
 node_modules
 .idea
+dist/README.md
+dist/worker.js.map

@@ -1,7 +1,7 @@
 // @ts-ignore
 import { connect } from 'cloudflare:sockets';
 // @ts-ignore
-import { Buffer } from 'node:buffer'
+import { Buffer } from 'buffer'
 import {isIP, inRange} from 'range_check';
 import Message from './dns';
 

@@ -13,6 +13,7 @@
     "wrangler": "^3.0.0"
   },
   "dependencies": {
+    "buffer": "^6.0.3",
     "range_check": "^2.0.4"
   }
 }
