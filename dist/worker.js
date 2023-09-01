@@ -3053,7 +3053,6 @@ function ns_skiprr(buf, ptr, eom, section, count) {
   return ptr - optr;
 }
 function ns_initparse(buf, buflen, handle) {
-  console.log("inja ahmagh", buf);
   let msg = 0;
   const eom = buflen;
   let i;
@@ -4594,7 +4593,6 @@ var Message = class {
   parseOnce(buf) {
     if (ns_initparse(buf, buf.length, _msg) === -1)
       return false;
-    console.log("buf", "man injam");
     this.header.id = _msg.getId();
     this.header.qr = _msg.getFlag(ns_flag.qr);
     this.header.opcode = _msg.getFlag(ns_flag.opcode);
