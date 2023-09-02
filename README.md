@@ -13,14 +13,9 @@ bepass-worker
 - [🚀 Deploying a Worker](#-deploying-a-worker)
   - [One-Click Deploy](#one-click-deploy)
   - [Manual Deployment](#manual-deployment)
-  - [Add your own relay](#add-your-own-relay)
-- [Usage Limits](#usage-limits)
-  - [📦 Installation](#-installation)
-  - [🎮 Using bepass-worker](#-using-bepass-worker)
-  - [🧪 Running Tests](#-running-tests)
 - [🗺 Roadmap](#-roadmap)
 - [🤝 Contributing](#-contributing)
-- [📄 License](#-license)
+- [نسخه فارسی](https://github.com/ErfanTech/bepass-worker/blob/main/README.md)
 
 ---
 
