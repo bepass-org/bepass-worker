@@ -34,7 +34,7 @@ The worker also implements a simple DNS proxy by forwarding DNS queries to a cus
 
 - Supports IPv6
 - Supports UDP
-- More reliable loopback connections to Cloudflare IPs 
+- More reliable loopback connections to Cloudflare IPs
 - Overall improved performance and stability
 - DNS
 
@@ -45,7 +45,7 @@ The worker also implements a simple DNS proxy by forwarding DNS queries to a cus
 
 ```
 ├── src
-│   ├── dns.js // DNS message encoding/parsing 
+│   ├── dns.js // DNS message encoding/parsing
 │   └── worker.ts // Main worker code
 ├── dist
 │   └──	worker.js // Compiled worker script
@@ -63,7 +63,7 @@ You can deploy this worker to your Cloudflare account automatically with one cli
 
 [![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/user/bepass-worker)
 
-### Manual Deployment 
+### Manual Deployment
 
 To manually deploy the worker:
 
@@ -78,7 +78,7 @@ To manually deploy the worker:
 9. Click the **Save and Deploy** button
 10. Write down the newly created worker address, it should be something like **[name].[username].workers.dev**
 11. Change your Bepass configuration to **https://[name].[username].workers.dev/dns-query**
-   --- 
+   ---
 ### Add your own relay
 
 **1. Follow the [relay set-up instructions](https://github.com/uoosef/cf-bepass#how-to-share-my-node-becoming-a-volunteer-maintainer) to run your own relay server.**
@@ -89,26 +89,26 @@ In the `worker.js` file, locate the following code:
 
 ```js
 // src/worker.ts
-var proxyIPs = ["relay1.bepass.org", "relay2.bepass.org"];
+var proxyIPs = ["relay1.bepass.org", "relay2.bepass.org", "relay3.bepass.org"];
 var proxyPort = 6666;
 var proxyIP = proxyIPs[Math.floor(Math.random() * proxyIPs.length)];
 ```
 
-Add the IP address or domain of your relay server. For example:
+Remove public relay addresses and Add the IP address or domain of your relay server. For example:
 
 ```js
 // src/worker.ts
-var proxyIPs = ["relay1.bepass.org", "relay2.bepass.org", "relay.example.com", "123.45.67.89"]; // Add your server IP/domain here
+var proxyIPs = ["relay.example.com", "123.45.67.89"]; // Add your server IP/domain here
 var proxyPort = 6666;
 var proxyIP = proxyIPs[Math.floor(Math.random() * proxyIPs.length)];
 ```
 
 ## Usage Limits
 
-Cloudflare's free workers are limited to 100,000 requests per day. This is sufficient for personal use by one user or a small family. 
+Cloudflare's free workers are limited to 100,000 requests per day. This is sufficient for personal use by one user or a small family.
 
 For most personal usage, the free worker should be adequate. But if you experience rate limiting, you may need to deploy workers on multiple accounts.
-    
+
 
 ### 📦 Installation
 

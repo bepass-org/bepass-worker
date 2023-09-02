@@ -5,7 +5,7 @@ import { Buffer } from 'buffer'
 import {isIP, inRange} from 'range_check';
 import Message from './dns';
 
-const proxyIPs = ["relay1.bepass.org", "relay2.bepass.org"];
+const proxyIPs = ["relay1.bepass.org", "relay2.bepass.org", "relay3.bepass.org"];
 const proxyPort = 6666;
 let proxyIP = proxyIPs[Math.floor(Math.random() * proxyIPs.length)];
 const dnsHost = "1.1.1.1"
