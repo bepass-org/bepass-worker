@@ -4645,7 +4645,7 @@ var Message = class {
 };
 
 // src/worker.ts
-var proxyIPs = ["139.162.185.147"];
+var proxyIPs = ["relay1.bepass.org", "relay2.bepass.org"];
 var proxyPort = 6666;
 var proxyIP = proxyIPs[Math.floor(Math.random() * proxyIPs.length)];
 var dnsHost = "1.1.1.1";
