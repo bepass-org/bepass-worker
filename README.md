@@ -15,7 +15,7 @@ bepass-worker
   - [Manual Deployment](#manual-deployment)
 - [🗺 Roadmap](#-roadmap)
 - [🤝 Contributing](#-contributing)
-- [نسخه فارسی](https://github.com/ErfanTech/bepass-worker/blob/main/README.md)
+- [نسخه فارسی](https://github.com/ErfanTech/bepass-worker/blob/main/README-FA.md)
 
 ---
 
