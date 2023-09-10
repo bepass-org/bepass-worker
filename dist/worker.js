@@ -4647,7 +4647,7 @@ var Message = class {
 // src/worker.ts
 var proxyIPs = ["relay1.bepass.org", "relay2.bepass.org", "relay3.bepass.org"];
 var proxyPort = 6666;
-var proxyIP = proxyIPs[Math.floor(Math.random() * proxyIPs.length)];
+var proxyIP = proxyIPs[0];
 var dnsHost = "1.1.1.1";
 var WS_READY_STATE_OPEN = 1;
 var WS_READY_STATE_CLOSING = 2;
@@ -4708,6 +4708,7 @@ async function bepassOverWs(request) {
   });
   const destinationHost = params["host"];
   const destinationPort = params["port"];
+  proxyIP = params["session"] ? proxyIPs[parseInt(params["session"]) % proxyIPs.length] : proxyIPs[Math.floor(Math.random() * proxyIPs.length)];
   const destinationNetwork = params["net"] ? params["net"].toString().toLowerCase() : "tcp";
   const webSocketPair = new WebSocketPair();
   const [client, webSocket] = Object.values(webSocketPair);
@@ -4787,6 +4788,7 @@ function makeReadableWebSocketStream(webSocketServer, log) {
 }
 async function handleTCPOutBound(remoteSocket, destinationNetwork, addressRemote, portRemote, rawClientData, webSocket, log) {
   async function connectAndWrite(address, port, rawHeaderEnabled) {
+    address = address.replace("[", "").replace("]", "");
     const mmd = destinationNetwork + "@" + addressRemote + "$" + portRemote;
     if (!isIP(address)) {
       const ip = await lookup(address);
@@ -4798,6 +4800,9 @@ async function handleTCPOutBound(remoteSocket, destinationNetwork, addressRemote
       address = proxyIP;
       port = proxyPort;
       rawHeaderEnabled = true;
+    }
+    if (address.includes(":")) {
+      address = "[" + address + "]";
     }
     const tcpSocket2 = connect({
       hostname: address,

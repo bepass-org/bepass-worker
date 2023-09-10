@@ -1,5 +1,5 @@
-﻿<div align="center">
-<h1 align="center">
+﻿<div>
+<h1 style='text-align: center'>
 bepass-worker
 </h1>
 </div>
@@ -15,7 +15,7 @@ bepass-worker
   - [Manual Deployment](#manual-deployment)
 - [🗺 Roadmap](#-roadmap)
 - [🤝 Contributing](#-contributing)
-- [نسخه فارسی](https://github.com/ErfanTech/bepass-worker/blob/main/README-FA.md)
+- [نسخه فارسی](https://github.com/uoosef/bepass-worker/blob/main/README-FA.md)
 
 ---
 
@@ -26,17 +26,17 @@ This repository contains a new worker.js that aims for better solutions in terms
 
 As you know, Cloudflare workers are currently unable to connect to hosts that have Cloudflare IPs (this is considered a loopback).This worker uses relay nodes to work around that limitation.
 
-The worker also implements a simple DNS proxy by forwarding DNS queries to a custom DNS server specified in the dnsHost variable.
+The worker also implements an advanced DNS DOH client/proxy for dns routing/serving purposes.
 
 ---
 
 ## ⚙️ Features
 
 - Supports IPv6
-- Supports UDP
-- More reliable loopback connections to Cloudflare IPs
+- Supports UDP through relays
+- More reliable loopback connection handling and routing
+- Embedded DOH DNS Client/Proxy
 - Overall improved performance and stability
-- DNS
 
 ---
 
@@ -57,13 +57,7 @@ The worker also implements a simple DNS proxy by forwarding DNS queries to a cus
 
 ## 🚀 Deploying a Worker
 
-### One-Click Deploy
-
-You can deploy this worker to your Cloudflare account automatically with one click using the button below.
-
-[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/user/bepass-worker)
-
-### Manual Deployment
+### Manual Deployment (recommended)
 
 To manually deploy the worker:
 
@@ -78,7 +72,15 @@ To manually deploy the worker:
 9. Click the **Save and Deploy** button
 10. Write down the newly created worker address, it should be something like **[name].[username].workers.dev**
 11. Change your Bepass configuration to **https://[name].[username].workers.dev/dns-query**
-   ---
+
+### One-Click Deploy (experienced users only)
+
+You can deploy this worker to your Cloudflare account automatically with one click using the button below.
+
+[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/user/bepass-worker)
+
+---
+
 ### Add your own relay
 
 **1. Follow the [relay set-up instructions](https://github.com/uoosef/cf-bepass#how-to-share-my-node-becoming-a-volunteer-maintainer) to run your own relay server.**
